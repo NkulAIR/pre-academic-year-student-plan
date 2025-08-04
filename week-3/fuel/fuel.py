@@ -4,6 +4,9 @@ while True:
         user_input = input("Fraction: ")
         user_input = user_input.split("/")
         x, y = int(user_input[0]), int(user_input[1])
+        if x < 0 or y < 0:
+            continue
+
 
     except ValueError:
         pass
