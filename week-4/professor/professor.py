@@ -27,8 +27,8 @@ def generate_integer(level):
             case 1:
                 a = random.randint(0,9)
                 b = random.randint(0,9)
-                numbers.append(a)
-                numbers.append(b)
+                # numbers.append(a)
+                # numbers.append(b)
             case 2:
                 a = random.randint(10,99)
                 b = random.randint(10,99)
@@ -62,7 +62,7 @@ def generate_integer(level):
             break
 
     print("Score: ",score)
-    print(numbers)
+    # print(numbers)
 
 
 
