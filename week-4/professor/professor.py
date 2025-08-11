@@ -13,9 +13,6 @@ def get_level():
         if level.isdigit() == True:
             if 1 <= int(level) <= 3:
                 return int(level)
-        else:
-            continue
-
 
 
 def generate_integer(level):
