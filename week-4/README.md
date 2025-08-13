@@ -4,7 +4,7 @@ It was very interesting learning about the different libraries in Python especia
 
 
 This week's problem set was interesting and a bit more challenging. I spent the most time on professor and game.py because one check50 test kept on failing.
-### Professor
+### Professor:Problem
 It seems like the program does not generate random numbers on level 1 (numbers from 0-9)
 #### Update
 Ended up rewriting the generate integer function to return a single number and called it twice in my main function, once for the first number of the sum and again for the other number. I then came across this problem
