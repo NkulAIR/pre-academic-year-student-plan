@@ -1,7 +1,11 @@
 import random
 import sys
+import sys
 
 def main():
+    score = 0
+    tries = 0
+
     score = 0
     tries = 0
 
@@ -10,21 +14,27 @@ def main():
         a = generate_integer(level)
         b = generate_integer(level)
 
+        a = generate_integer(level)
+        b = generate_integer(level)
+
         while tries < 3:
             try:
                 print(f"{a} + {b} =", end=" ")
+                print(f"{a} + {b} =", end=" ")
                 answer = int(input())
+                if answer == a + b:
                 if answer == a + b:
                     score += 1
                     break
                 else:
+                else:
                     tries += 1
                     print("EEE")
                     continue
-
-
+                    
             except ValueError:
                 print("EEE")
+                continue
                 continue
         else:
             print(f"{a} + {b} = {a + b}")
@@ -34,7 +44,6 @@ def main():
 
 
 def get_level():
-#Prompt user for a number between 1-3 and reprompt if the input is invalid
     while True:
         try:
             level = int(input("Level: "))
@@ -61,6 +70,3 @@ def generate_integer(level):
 
 if __name__ == "__main__":
     main()
-
-
-
