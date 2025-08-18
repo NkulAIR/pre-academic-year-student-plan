@@ -8,40 +8,28 @@ def main():
 
 def is_valid(string):
     # punctuation = "%$@!,:?-;')_/.&(^\""
-    while len(string) <= 6 and len(string) > 2:
+    if len(string) <= 6 and len(string) >= 2:
         if string.isalpha():
             return True
+        if " " in string or "." in string:
+            return False
         else:
             for char in string:
-                if string.count(".") > 0:
+                if char in "%$@!,:?-;')_/.&(^\"":
                     return False
-                else:
-                    if char.isdigit():
-                        if string[-2].isdigit() and string[0].isalpha():
-                            n_string = string[len(string.rstrip("0123456789")):]
-                            if n_string.isdigit():
-                                if n_string[0] == "0":
-                                    return False
-                                else:
-                                    pass
-                                return True
-                            else:
+                if char.isdigit():
+                    if string[-2].isdigit() and string[0].isalpha():
+                        n_string = string[len(string.rstrip("0123456789")):]
+                        if n_string.isdigit():
+                            if n_string[0] == "0":
                                 return False
+                            else:
+                                pass
+                            return True
                         else:
                             return False
-                    if char in "%$@!,:?-;')_/.&(^\"":
+                    else:
                         return False
-        break
-
-
-# def is_valid(string):
-#     # punctuation = "%$@!,:?-;')_/.&(^\""
-#     if len(string) <= 6 and len(string) >= 2:
-#         if string[:2].isalpha() or string[:1].isalpha():
-#             for i in string:
-#                 if i.isalpha() or i.isnumeric():
-#                     if i.isnumeric():
-
 
     return False
 
