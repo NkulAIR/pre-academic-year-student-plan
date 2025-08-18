@@ -7,40 +7,38 @@ def main():
 
 
 def is_valid(string):
-    # punctuation = "%$@!,:?-;')_/.&(^\""
-    while len(string) <= 6 and len(string) > 2:
+    if len(string) <= 6 and len(string) >= 2:
         if string.isalpha():
             return True
+        if " " in string or "." in string:
+            return False
         else:
             for char in string:
-                if string.count(".") > 0:
+                if char in "%$@!,:?-;')_/.&(^\"":
                     return False
-                else:
-                    if char.isdigit():
-                        if string[-2].isdigit() and string[0].isalpha():
-                            n_string = string[len(string.rstrip("0123456789")):]
-                            if n_string.isdigit():
-                                if n_string[0] == "0":
-                                    return False
-                                else:
-                                    pass
-                                return True
-                            else:
+                if char.isdigit():
+                    if string[-2].isdigit() and string[0].isalpha():
+                        n_string = string[len(string.rstrip("0123456789")):]
+                        if n_string.isdigit():
+                            if n_string[0] == "0":
                                 return False
+                            else:
+                                pass
+                            return True
                         else:
                             return False
-                    if char in "%$@!,:?-;')_/.&(^\"":
+                    else:
                         return False
-        break
 
+    return False
 
 
 main()
 
-# While the string has less than 6 letters. if it has less than two it is invalid
+# If length of string is longer than / equal to 2 char or shorter than or equal 6 chars
 # If the string has digits only the last part can be digits and the first part of the string must be a letter
-# If the string has marks it is invalid
-# If the string has space it is invalid *
+# If the string has punctuation marks, it is invalid
+# If the string has "." it is invalid
 # If the first number used on the plate is 0, it is invalid
 
 
