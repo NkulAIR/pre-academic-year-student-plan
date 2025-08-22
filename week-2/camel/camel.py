@@ -1,31 +1,17 @@
 def main():
+    word = ""
     user = input("camelCase: ").strip(" ")
-    snakecase(user)
-    print(f"snake_case:", snakecase(user))
-
-
-    #Check if there is uppercase and split at the first occurence of uppercase
-    #Convert to lowercase, split the two words and connect them with "-"
-    # words = user.split()
-    # contains_uppercase = [word for word in words if word[0].isupper()]
-    # # uppercase = [word for word in words if word[0].isupper()]
-def snakecase(user):
-    snake_case = "_".join(extract_words(user))
-    return snake_case.lower()
-
-def extract_words(user):
-    words = []
-    current_word = ""
-    for char in user:
-        if char.isupper() and current_word:
-            words.append(current_word)
-            current_word = char
+    for i in user:
+        if i.isupper():
+            word += "_"
+            word += str(i).lower()
         else:
-            current_word += char
-    if current_word:
-        words.append(current_word)
-    return words
+            word += i
+    print("snake_case:",word)
+
+
 
 if __name__ == "__main__":
     main()
-
+# Iterate through word if current char is capital letter add, "_"
+# Otherwise add current char
