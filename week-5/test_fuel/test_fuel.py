@@ -10,10 +10,6 @@ def test_convert():
     assert convert("10/70") == 14
 
 
-def test_x():
-    with pytest.raises(ValueError):
-        convert("100/1")
-
 def test_gauge():
     assert gauge(1) == "E"
     assert gauge(99) == "F"
@@ -25,6 +21,10 @@ def test_percentage():
 def test_zero():
     with pytest.raises(ZeroDivisionError):
         convert("100/0")
+
+def test_negative():
+    with pytest.raises(ValueError):
+        convert("-1/1")
 
 
 def test_empty():
