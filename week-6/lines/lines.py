@@ -4,18 +4,15 @@ try:
     if len(sys.argv) > 2:
         sys.exit("Too many command-line arguments")
     if sys.argv[1].endswith(".py"):
-        # file = sys.argv[1]
         try:
+            count = 0
             with open(sys.argv[1]) as file:
-                lines = file.readlines()
-                # count = 0
-                # for line in file:
-                #     if line.startswith("#") or not line:
-                #         pass
-                #     else:
-                #         count += 1
-            print(lines)
-
+                for line in file:
+                    if not line.lstrip().startswith("#") and line.lstrip() != '':
+                        count += 1
+                    else:
+                        pass
+            print(count)
         except FileNotFoundError:
             sys.exit("File does not exist")
     else:
@@ -23,20 +20,11 @@ try:
 except IndexError:
     sys.exit("Too few command-line arguments")
 
-# count = 0
 
-# if len(sys.argv) > 1:
-#     sys.exit("Too many command-line arguments")
-# if len(sys.argv) <= 0:
-#     sys.exit("Too few command-line arguments")
-# else:
-#     if sys.argv[0]:
-#         with open(sys.argv[0]) as file:
-#             for line in file:
-#                 if line.startswith("#") or not line:
-#                     pass
-#                 else:
-#                     count += 1
-#         print(count)
-#     else:
-#         sys.exit("File does not exist")
+#Check if sys.argv[1] is there if not dont run program
+#Open the target file and read how many lines are in it
+#Count only lines of code
+#Print the number of lines
+
+
+#Not count comments
