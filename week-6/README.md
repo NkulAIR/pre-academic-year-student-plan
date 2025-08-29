@@ -1,2 +1,5 @@
 ## Week 6 - Problemset6
 ### What I found challenging about this week's problem set is that lines problem set, specifically setting the parameters of what a line of code is. It turns out the solution was just counting a lines that do not start with "#" or '' after trailing space has been removed on the left and right. That's what defines a line of code.
+
+## CS50 P-Shirt
+Has been the most fun exercise in this problem set
