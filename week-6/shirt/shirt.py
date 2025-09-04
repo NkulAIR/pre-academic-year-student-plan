@@ -13,13 +13,17 @@ def validate():
         sys.exit("Too many command-line arguments")
     else:
         try:
-            input_file = sys.argv[1]
-            output_file = sys.argv[2]
+            if sys.argv[1].endswith(".png") or sys.argv[2].endswith(".jpg") or sys.argv[2].endswith(".png"):
+                input_file = sys.argv[1]
+                output_file = sys.argv[2]
 
-            if input_file[-3:] != output_file[-3:]:
-                sys.exit("Input and output have different extensions")
+                if input_file[-3:] != output_file[-3:]:
+                    sys.exit("Input and output have different extensions")
+                else:
+                    return input_file, output_file
             else:
-                return input_file, output_file
+                sys.exit("Invalid input")
+
         except FileNotFoundError:
             sys.exit(f"Could not read{file_name}")
 
@@ -37,7 +41,13 @@ def apply_shirt():
                     muppet = ImageOps.fit(before, size=(600,600))
                     pic_size = (600, 600)
                     images.append(muppet)
-                    print(images)
+
+                    new_shirt = ImageOps.pad(shirt, size=(600, 600), centering=(0.5, 0.5))
+                    muppet.paste(new_shirt, new_shirt)
+
+                    after = images[0].save(img2)
+                    images.append(new_shirt)
+                    return after
 
             except FileNotFoundError:
                 sys.exit(f"{sys.argv[1]} not found")
